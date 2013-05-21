@@ -23,4 +23,4 @@ notes:
     This step will tell you whether munin-update(the server) is able to communicate with munin-node(the agent).
 
     su -s /bin/bash munin  or   su - munin --shell=/bin/bash
-    usr/share/munin/munin-update --debug --nofork --stdout --host foo.example.com --service df
+    usr/share/munin/munin-update --debug --nofork --host foo.example.com --service df
