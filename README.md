@@ -1,6 +1,8 @@
 munin-python
 ============
 
+learn from http://tomoconnor.eu/blogish/monitoring-munin/#.UZsHuqDLVk9
+
 monitor system through munin with python plugins 
 
 
