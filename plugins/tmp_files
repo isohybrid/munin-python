@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import os
+from munin import MuninPlugin
+
+class TmpFileCount(MuninPlugin):
+      title = "Number of files in /tmp"
+      args = "--base 100 -1 0"
+      vlabel = "files"
+      scaled = "False"
+      category = "system"
+
+      @property
+      def fields(self):
+          warning = os.environ.get('files.warn', 10)
+          critical = os.environ.get('files.crit', 120)
+          return [("files", dict(
+            label = "files",
+            info = "Number of files in /tmp",
+            type = "GAUGEA",
+            min = "0",
+            warning = str(warning),
+            critical = str(critical)))]
+
+      def execute(self):
+            dircount = len(os.listdir("/tmp"))
+            print "files.value %s" % dircount
+
+if __name__ == "__main__":
+      TmpFileCount().run()
