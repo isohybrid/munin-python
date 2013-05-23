@@ -22,5 +22,6 @@ class MuninNginxRequestsPlugin(MuninNginxPlugin):
         request = self.get_status()['requests'],
     )
 
+
 if __name__ == "__main__":
   MuninNginxConnectionsPlugin().run()
