@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+from MuninRedis import MuninRedisPlugin
+
+class MuninRedisCommandsPlugin(MuninRedisPlugin):
+  title = "Redis commands"
+  args = "--base 1000"
+  vlabel = "commands/sec"
+  info = "total commands"
+  fields = (
+      ('total_commands_proccessed', dict(
+        label = "commands",
+        info = "commands",
+        type = "CPUNTER",
+      )),
+  )
+
+if __name__ == "__main__":
+  MuninRedisCommandsPlugin().run()
