@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+from Munin.Redis import MuninRedisPlugin
+
+class MuninRedisTotalsConnectionsPlugin(MuninRedisPlugin):
+  title = "Redis total connections"
+  args = "--base 1000"
+  vlabel = "connections/sec"
+  info = "connections per second"
+  fields = (
+      ('total_connections_received', dict(
+        label = "connections",
+        info = "connections",
+        type = "COUNTER",
+      )),
+  )
