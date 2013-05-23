@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+from munin.redis import MuninRedisPlugin
+
+class MuninRedisUsedMemoryPlugin(MuninRedisPlugin):
+  title = "Redi used memory"
+  info = "used memory"
+  args = "--base 1024"
+  vlabel = "Memory"
+  fields = (
+      ('used_memory', dict(
+        label = "used_memory",
+        info = "used_memory",
+        type = "GAUE",
+      )),
+  )
+
+if __name__ == "__main__":
+  MuninRedisUsedMemoryPlugin().run()
